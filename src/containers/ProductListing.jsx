@@ -1,8 +1,9 @@
 //learn more about asynchronous programming
 import React, { useEffect } from "react";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import ProductComponent from "./ProductComponent";
+import { setProducts } from "../redux/actions/productActions";
 
 const ProductListing = () => {
   const products = useSelector((state) => state);
@@ -15,11 +16,14 @@ const ProductListing = () => {
         console.log("Err", err);
       });
     console.log(response.data);
+    dispatch(setProducts(response.data));
   };
 
   useEffect(() => {
     fetchProducts();
   }, []);
+
+  console.log("Products: ",products)
   return (
     <div className="ui grid container">
       <ProductComponent />

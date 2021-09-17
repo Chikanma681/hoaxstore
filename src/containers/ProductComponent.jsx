@@ -12,7 +12,7 @@ import {
 
 const ProductComponent = () => {
   const products = useSelector((state) => state.allProducts.products[0]);
-  const { id, title } = products;
+  // const { id, title } = products;
 
 
   return (
@@ -23,7 +23,7 @@ const ProductComponent = () => {
             <Card>
             <CardImg top width="100%"/>
             <CardBody>
-              <CardText><h6>{title}</h6></CardText>
+              <CardText><h6>Chikanma</h6></CardText>
             </CardBody>
             </Card>
           </div>
