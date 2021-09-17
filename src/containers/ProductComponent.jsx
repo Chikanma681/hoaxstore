@@ -1,3 +1,5 @@
+// 5 rows
+// 4 column
 import React from "react";
 import { useSelector } from "react-redux";
 import {
@@ -7,30 +9,49 @@ import {
   CardBody,
   CardTitle,
   CardSubtitle,
-  Button,
+  Col,
+  Row,
+  Container,
+  // Button,
 } from "reactstrap";
 
 const ProductComponent = () => {
-  const products = useSelector((state) => state.allProducts.products[0]);
-  // const { id, title } = products;
-
+  const products = useSelector((state) => state.allProducts.products);
+  // console.log("ProductComponent", products)
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-12 col-md-3 m-1">
-          <div>
-            <Card>
-            <CardImg top width="100%"/>
-            <CardBody>
-              <CardText><h6>Chikanma</h6></CardText>
-            </CardBody>
-            </Card>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Container>
+      <Row>
+        {products.map((product) => {
+          return (
+            <Col md={3} className="">
+              <div>
+                <Card>
+                  <CardImg
+                    top
+                    width="100%"
+                    src={product.image}
+                    alt={product.title}
+                  />
+                  <CardBody>
+                    <CardTitle tag="h5">{product.title}</CardTitle>
+                    <CardSubtitle tag="h6">$ {product.price}</CardSubtitle>
+                    <CardText>
+                      <div>
+                        <h6>{product.category}</h6>
+                      </div>
+                    </CardText>
+                  </CardBody>
+                </Card>
+              </div>
+            </Col>
+          );
+        })}
+      </Row>
+    </Container>
   );
+
+  // return <>{RenderList}</>;
 };
 
 export default ProductComponent;
