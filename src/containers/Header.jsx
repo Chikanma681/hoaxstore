@@ -4,7 +4,7 @@ import { Jumbotron, Navbar } from "reactstrap";
 const Header = () => {
   return (
     <React.Fragment>
-      <Navbar dark color="primary" expand="md">
+      <Navbar dark color="primary" expand="md" fixed="top">
         <div className="container">
           <Jumbotron>
             <header>
@@ -20,6 +20,10 @@ const Header = () => {
         </div>
       </Navbar>
       <br />
+      <br/>
+      <br/>
+      <br/>
+
     </React.Fragment>
   );
 };
